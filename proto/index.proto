@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package proto;
+
+message Field {
+  string name = 1;
+  int32 dim = 2;
+  map<string, int64> records = 3;
+}
+
+message Index{
+  map<string, Field> embeddings = 1;
+}

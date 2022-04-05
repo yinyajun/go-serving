@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto;
+
+enum DataType {
+  DT_INVALID = 0;
+  DT_FLOAT = 1;
+  DT_INT32 = 2;
+  DT_STRING = 3;
+}
+
+
+message Tensor {
+  DataType dtype = 1;
+  repeated int32 tensor_shape = 2;
+
+  repeated float float_val = 3 [packed = true];
+  repeated int32 int_val = 4 [packed = true];
+  repeated string string_val = 5;
+}
+
+
+message Data{
+  map<string, Tensor> data =1;
+}
